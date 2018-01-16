@@ -46,11 +46,11 @@ open class RIGImageGalleryViewController: UIPageViewController {
     }
 
     /// The bar button item to use for the left side of the screen, `didSet` adds the correct target and action to ensure that `dismissHandler` is called when the button is pressed
-    open var doneButton: UIBarButtonItem? = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil) {
-        didSet {
-            configureDoneButton()
-        }
-    }
+//    open var doneButton: UIBarButtonItem? = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil) {
+//        didSet {
+//            configureDoneButton()
+//        }
+//    }
 
     /// The bar button item to use for the right side of the screen, `didSet` adds the correct target and action to ensure that `actionButtonHandler` is called
     open var actionButton: UIBarButtonItem? {
@@ -130,7 +130,7 @@ open class RIGImageGalleryViewController: UIPageViewController {
         delegate = self
         automaticallyAdjustsScrollViewInsets = false
         handleImagesUpdate(oldValue: [])
-        configureDoneButton()
+//        configureDoneButton()
         configureActionButton()
     }
 
@@ -140,7 +140,7 @@ open class RIGImageGalleryViewController: UIPageViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        configureDoneButton()
+//        configureDoneButton()
         zoomRecognizer.addTarget(self, action: #selector(toggleZoom(_:)))
         zoomRecognizer.numberOfTapsRequired = 2
         zoomRecognizer.delegate = self
@@ -285,11 +285,11 @@ private extension RIGImageGalleryViewController {
         return (imagesArray ?? images).index(of: item)
     }
 
-    func configureDoneButton() {
-        doneButton?.target = self
-        doneButton?.action = #selector(dismissPhotoView(_:))
-        navigationItem.leftBarButtonItem = doneButton
-    }
+//    func configureDoneButton() {
+//        doneButton?.target = self
+//        doneButton?.action = #selector(dismissPhotoView(_:))
+//        navigationItem.leftBarButtonItem = doneButton
+//    }
 
     func configureActionButton() {
         actionButton?.target = self
